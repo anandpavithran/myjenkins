@@ -5,7 +5,7 @@ pipeline {
     }
     agent {
       node {
-        label 'ubi8'
+        label 'master'
       }
     }
 
@@ -31,7 +31,7 @@ pipeline {
         stage('Create an WebPage') {
             steps {
                 echo '### Creating Webpage ###'
-                sh 'echo "Demo of Jenkins Pipeline >> index.html'
+                sh 'echo "Demo of Jenkins Pipeline" >> index.html'
             }
         }
 
