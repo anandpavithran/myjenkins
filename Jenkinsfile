@@ -4,8 +4,9 @@ pipeline {
         timeout(time: 60, unit: 'MINUTES')
     }
     agent {
-      node {
-        label 'master'
+      docker {
+        #label 'master'
+         image 'ubi:8.0'
       }
     }
 
@@ -31,7 +32,7 @@ pipeline {
         stage('Create an WebPage') {
             steps {
                 echo '### Creating Webpage ###'
-                sh 'echo "Demo of Jenkins Pipeline" >> index.html'
+                sh 'echo "Demo of Jenkins Pipeline" >> /var/www/html/index.html'
             }
         }
 
